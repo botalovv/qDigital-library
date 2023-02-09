@@ -1,0 +1,94 @@
+*{
+    font-family: 'Inter';
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #E8DEDE;
+}
+
+h2 {
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 60px;
+    letter-spacing: -0.022em;
+}
+
+.book-list {
+    background-color: #fff;
+}
+
+.book-item {
+    height: 22px;
+    width: 432;
+}
+
+.left-header {
+    margin-bottom: 20px;
+}
+
+.form-container {
+    padding: 20px;
+    width: 742px;
+    /* height: 318px; */
+    background-color: #fff;
+}
+
+.selector-container {
+    display: flex;
+    height: 40px;
+}
+
+.checkbox {
+    width: 20px;
+    height: 20px;
+    margin-right: 17px;
+    margin-top: 7px;
+}
+
+.form__p {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 34px;
+    letter-spacing: -0.017em;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.form-input {
+    padding-left: 17px;
+    width: 721px;
+    border: 2px solid #000000;
+}
+
+.header-input {
+    height: 39px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.description-input {
+    height: 135px;
+    margin-bottom: 10px;
+}
+
+.submit-button {
+    width: 742px;
+    height: 40px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.input-file {
+    width: 728px;
+    height: 30px;
+    border: 2px solid #000;
+    padding: 5px;
+    padding-top: 10px;
+    background-color: transparent;
+    margin-bottom: 10px;
+}
+
+.hidden {
+    display: none;
+}

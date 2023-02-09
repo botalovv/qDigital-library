@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" type="text/css" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div>
+        <div>
+            <h2 class="left-header">Список книг</h2>
+        </div>
+        <div class="book-list">
+           <div class="book-item">
+                
+           </div>
+        </div>
+    </div>
+    <div>
+        <div>
+            <h2 class="left-header">Добавить книгу</h2>
+        </div>
+        <div class="form-container">
+            <form action="" method="get" class="form">
+                <div class="selector-container">
+                    <input id="uploadInput" type="radio" name="radio" value="download" class="checkbox">
+                    <p class="form__p">Загрузить книгу</p>
+                </div>
+                <div class="selector-container">
+                    <input id="createInput" type="radio" name="radio" value="create" class="checkbox">
+                    <p class="form__p">Написать самому</p>
+                </div>
+                <div id="form-div">
+                    <!-- <input id="bookNameInput" type="text" placeholder="Заголовок" class="form-input header-input">
+                    <input id="bookTextInput" type="text" placeholder="Описание" class="form-input description-input"> -->
+                    <button id="createButton" class="submit-button form__p hidden">Отправить/Сохранить</button>
+                    <!-- <input id="bookFileInput" type="file" accept=".txt" class="input-file"> -->
+                    <button type="button" id="uploadButton" class="submit-button form__p hidden">Отправить/Сохранить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
+
+
