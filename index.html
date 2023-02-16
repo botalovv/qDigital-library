@@ -12,39 +12,49 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div>
+    <div class="left-container">
         <div>
-            <h2 class="left-header">Список книг</h2>
+            <div>
+                <h2 class="left-header">Список книг</h2>
+            </div>
+            <div class="book-container" id="bookList">
+                <!-- <div class="book-item">
+                        <p class="book-item__p">- Book number 1</p>
+                        <button class="book-item__button edit">Ред.</button>
+                        <button class="book-item__button readed">Прочитана</button>
+                        <button class="book-item__button read">Читать</button>
+                        <button class="book-item__button delete">x</button>
+                </div> -->
+            </div>
         </div>
-        <div class="book-list">
-           <div class="book-item">
-                
-           </div>
+        <div>
+            <div>
+                <h2 class="left-header">Добавить книгу</h2>
+            </div>
+            <div class="form-container">
+                <form action="" method="get" class="form">
+                    <div class="selector-container">
+                        <input id="uploadInput" type="radio" name="radio" value="download" class="checkbox">
+                        <p class="form__p">Загрузить книгу</p>
+                    </div>
+                    <div class="selector-container">
+                        <input id="createInput" type="radio" name="radio" value="create" class="checkbox">
+                        <p class="form__p">Написать самому</p>
+                    </div>
+                    <div id="form-div">
+                        <input id="bookNameInput" type="text" name="title" placeholder="Заголовок" class="form-input header-input hidden">
+                        <input id="bookTextInput" type="text" name="text" placeholder="Описание" class="form-input description-input hidden">
+                        <button id="createButton" class="submit-button form__p hidden">Отправить/Сохранить</button>
+                        <input id="bookFileInput" type="file" accept=".txt" class="input-file hidden">
+                        <button type="button" id="uploadButton" class="submit-button form__p hidden">Отправить/Сохранить</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-    <div>
-        <div>
-            <h2 class="left-header">Добавить книгу</h2>
-        </div>
-        <div class="form-container">
-            <form action="" method="get" class="form">
-                <div class="selector-container">
-                    <input id="uploadInput" type="radio" name="radio" value="download" class="checkbox">
-                    <p class="form__p">Загрузить книгу</p>
-                </div>
-                <div class="selector-container">
-                    <input id="createInput" type="radio" name="radio" value="create" class="checkbox">
-                    <p class="form__p">Написать самому</p>
-                </div>
-                <div id="form-div">
-                    <!-- <input id="bookNameInput" type="text" placeholder="Заголовок" class="form-input header-input">
-                    <input id="bookTextInput" type="text" placeholder="Описание" class="form-input description-input"> -->
-                    <button id="createButton" class="submit-button form__p hidden">Отправить/Сохранить</button>
-                    <!-- <input id="bookFileInput" type="file" accept=".txt" class="input-file"> -->
-                    <button type="button" id="uploadButton" class="submit-button form__p hidden">Отправить/Сохранить</button>
-                </div>
-            </form>
-        </div>
+    <div class="book">
+        <h2 class="book__name">Book number 1</h2>
+        <p class="book__text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum, nesciunt sequi velit nostrum odit dolorum libero error possimus quasi, a ipsam. Soluta, ipsam sapiente rerum excepturi delectus vero nulla adipisci?</p>
     </div>
     <script src="./script.js"></script>
 </body>
