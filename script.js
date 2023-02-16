@@ -43,6 +43,7 @@ const addBook = (e) => {
     const book = {
         title: title, 
         text: text,
+        isReaded: false,
     }
     if (title.length > 0) {
         books.push(book);
@@ -98,19 +99,22 @@ bookList.addEventListener("click", function (e) {
         closestDiv.remove()
         drawBookList(books, bookList);
     }
-
+    
     if(e.target.closest(".readed")) {
         // e.target.closest(".book-item").innerHTML = ""
         let closestDiv = e.target.closest(".book-item");
-        if (closestDiv.classList.contains("readedBook")) {
-            closestDiv.classList.remove("readedBook");
-            e.target.closest(".readed").classList.remove("readedButton");
-            e.target.closest(".readed").innerText = "Прочитана"
-        } 
-        else {
+        let divID = closestDiv.getAttribute('id');
+        if (!books[divID].isReaded) {
+            books[divID].isReaded = true
             closestDiv.classList.add("readedBook")
             e.target.closest(".readed").classList.add("readedButton");
             e.target.closest(".readed").innerText = "Прочитал"
+        } 
+        else {
+            closestDiv.classList.remove("readedBook");
+            e.target.closest(".readed").classList.remove("readedButton");
+            e.target.closest(".readed").innerText = "Прочитана";
+            books[divID].isReaded = false
         } 
         
     }
@@ -123,15 +127,7 @@ bookList.addEventListener("click", function (e) {
     }
 })
 
-//По клику на кнопку Ред. 
-//По клику на кнопку прочитано изменить inner.text у кнопки и closest("div") изменить style.background
-//По клику на кнопку Читать нужно изменить document.querySelector(".book__name").innerText на title, который будет взят из массива по индексу и 
-//document.querySelector(".book__name").innerText на text тем же образом
-//По клику на кнопку delete удалить элемент массива, в котором эта кнопка находится и убрать его из localStorage
-
 addBookForm.addEventListener("submit", addBook)
-
-
 
 function saveBookInLocalStorage() {
     localStorage.setItem(bookNameInput.value, bookTextInput.value);
@@ -140,33 +136,6 @@ function saveBookInLocalStorage() {
     bookTextInput.value = ""
     // document.getElementById("itemDiv").addEventListener('click', )
 }
-
-function showBook() {
-    
-}
-
-// createButton.addEventListener("click", function(e) {
-//     e.preventDefault();
-//     saveBookInLocalStorage();
-//     // addBook();
-// });
-
-
-
-
-// bookList.innerHTML +=`<div class="book-item id="itemDiv">
-// <p class="book-item__p">- ${bookNameInput.value}</p>
-// <button class="book-item__button">Ред.</button>
-// <button class="book-item__button">Прочитана</button>
-// <button class="book-item__button">Читать</button>
-// <button class="book-item__button">x</button>
-// </div>`
-
-
-
-
-
-
 
 // uploadButton.addEventListener("click", function(event) {
 //     event.preventDefault();
