@@ -16,6 +16,23 @@ h2 {
     letter-spacing: -0.022em;
 }
 
+.dropdown {
+    box-sizing: border-box;
+    width: 742px;
+    height: 37px;
+    background: #F1F0F0;
+    border: 1px dashed #000000;
+    font-weight: 900;
+    font-size: 13px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding-left: 276px;
+}
+
 .left-container {
     margin-right: 100px;
 }
@@ -26,9 +43,10 @@ h2 {
 
 .book-item {
     height: 30px;
-    width: 742px;
+    width: 764px;
     padding: 4px 11px;
     display: flex;
+    box-sizing: border-box;
 }
 
 .book-item__p {
@@ -37,7 +55,7 @@ h2 {
     line-height: 22px;
     letter-spacing: -0.017em;
     width: 452px;
-    padding-top: 4px;
+    /* padding-top: 4px; */
 }
 
 .book-item__button {

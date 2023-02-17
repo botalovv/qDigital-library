@@ -9,7 +9,8 @@ const bookTextInput = document.getElementById("bookTextInput");
 const bookFileInput = document.getElementById("bookFileInput");
 const bookList = document.getElementById("bookList");
 const addBookForm = document.querySelector(".form");
-
+const favoriteList = document.querySelector("#favoriteList");
+const dropdown = document.querySelector(".dropdown")
 
 const formDivContent = formDiv.innerHTML; 
 
@@ -53,13 +54,16 @@ const addBook = (e) => {
     console.log(books)
 } 
 
+addBookForm.addEventListener("submit", addBook);
+
 const drawBookList = (items, itemsList) => {
     console.log(items, itemsList)
     let id = -1;
     // const titlesList = document.querySelector("#bookList");
     itemsList.innerHTML = items.map((item, index) => {
+        localStorage.setItem(`book${index}`, JSON.stringify(item))
         id++
-        return `<div class="book-item" id="${id}">
+        return `<div class="book-item" id="${id}" draggable="true">
         <p class="book-item__p">${item.title}</p>
         <button class="book-item__button edit" id="edit${index}">Ред.</button>
         <button class="book-item__button readed" id="readed${index}">Прочитана</button>
@@ -74,10 +78,6 @@ const drawBookList = (items, itemsList) => {
     // console.log(this.id)
     // })
 }
-
-// bookItem.addEventListener("click", function (e) {
-//     console.log(bookItem.id)
-// })
 
 bookList.addEventListener("click", function (e) {
 
@@ -98,6 +98,7 @@ bookList.addEventListener("click", function (e) {
         // closestDiv.style.display = "none";
         closestDiv.remove()
         drawBookList(books, bookList);
+        localStorage.removeItem(`book${divID}`)
     }
     
     if(e.target.closest(".readed")) {
@@ -127,15 +128,57 @@ bookList.addEventListener("click", function (e) {
     }
 })
 
-addBookForm.addEventListener("submit", addBook)
+//При перетаскивании в drag and drop area клонировать в див избранных книг элемент, который мы перетаскивали
 
-function saveBookInLocalStorage() {
-    localStorage.setItem(bookNameInput.value, bookTextInput.value);
-    // bookArr.push({name: bookNameInput.value, text: bookTextInput.value})
-    bookNameInput.value = ""
-    bookTextInput.value = ""
-    // document.getElementById("itemDiv").addEventListener('click', )
-}
+bookList.addEventListener("dragstart", function (e) {
+    let closestDiv = e.target.closest(".book-item");
+    
+    closestDiv.addEventListener("drop", function (e) {
+        if (e.target.closest(".dropdown")) {
+            // favoriteList.innerHTML += closestDiv.cloneNode(true)
+            console.log()
+        }
+    })
+    // if (e.target.closest(".book-item")) {
+    //    setTimeout(() => {
+    //         closestDiv.classList.add("hidden");
+    //     }, 0)
+    // }
+        
+    
+    
+})
+
+bookList.addEventListener("dragend", function (e) {
+    
+})
+
+dropdown.addEventListener("dragenter", function (e) {
+    console.log(e.target.value)
+})
+
+dropdown.addEventListener("dragover", function (e) {
+    e.preventDefault()
+})
+
+dropdown.addEventListener("drop", function (e) {
+    if(e.target.closest(".dropdown")) {
+        favoriteList.cloneNode(e.dataTransfer)
+        console.log(e.dataTransfer.getData)
+    }
+})
+
+
+
+
+
+// function saveBookInLocalStorage() {
+//     localStorage.setItem(bookNameInput.value, bookTextInput.value);
+//     bookArr.push({name: bookNameInput.value, text: bookTextInput.value})
+//     bookNameInput.value = ""
+//     bookTextInput.value = ""
+//     document.getElementById("itemDiv").addEventListener('click', )
+// }
 
 // uploadButton.addEventListener("click", function(event) {
 //     event.preventDefault();
